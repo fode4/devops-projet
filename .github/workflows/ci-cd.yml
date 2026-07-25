@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Afficher les fichiers du projet
-        run: ls
+        run: ls -la
