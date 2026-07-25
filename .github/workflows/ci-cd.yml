@@ -13,9 +13,6 @@ jobs:
       - name: Récupérer le code
         uses: actions/checkout@v4
 
-      - name: Afficher les fichiers du projet
-        run: ls -la
-
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
@@ -23,3 +20,9 @@ jobs:
 
       - name: Vérifier la version de Python
         run: python --version
+
+      - name: Construire l'image Docker
+        run: docker build -t devops-app:latest .
+
+      - name: Vérifier l'image Docker
+        run: docker images
