@@ -13,7 +13,7 @@ spec:
         app: devops-app
     spec:
       containers:
-        - name: nginx
-          image: nginx
+        - name: devops-app
+          image: devops-app:latest
           ports:
-            - containerPort: 80
+            - containerPort: 5000
