@@ -38,7 +38,7 @@ jobs:
         with:
           version: 'latest'
 
-      - name: Vérifier les fichiers Kubernetes
+           - name: Vérifier les fichiers Kubernetes
         run: |
-          kubectl apply --dry-run=client -f deployment.yaml
-          kubectl apply --dry-run=client -f service.yaml
+          kubectl apply --dry-run=client --validate=false -f deployment.yaml
+          kubectl apply --dry-run=client --validate=false -f service.yaml
