@@ -33,6 +33,11 @@ jobs:
       - name: Publier l'image sur Docker Hub
         run: docker push fode4/devops-app:latest
 
+      - name: Installer kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
+
       - name: Vérifier les fichiers Kubernetes
         run: |
           kubectl apply --dry-run=client -f deployment.yaml
