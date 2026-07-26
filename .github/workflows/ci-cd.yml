@@ -22,7 +22,13 @@ jobs:
         run: python --version
 
       - name: Construire l'image Docker
-        run: docker build -t devops-app:latest .
+        run: docker build -t fode4/devops-app:latest .
 
-      - name: Vérifier l'image Docker
-        run: docker images
+      - name: Se connecter à Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Publier l'image sur Docker Hub
+        run: docker push fode4/devops-app:latest
